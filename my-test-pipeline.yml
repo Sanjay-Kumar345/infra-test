@@ -8,6 +8,9 @@ trigger:
 
 pool: test-agent
 
+variables:
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/UAT'
+
 stages:
  - stage:
    jobs:
@@ -18,4 +21,5 @@ stages:
         inputs:
          script: |
           terraform init
+         workingDirectory: $(workingDirectory)
          
