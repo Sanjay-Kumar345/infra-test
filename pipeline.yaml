@@ -1,0 +1,13 @@
+trigger:
+ - main
+agent-pool: test-agentv
+
+workingDirectory: Environment/UAT
+
+stages:
+ - stage: validation
+   jobs:
+    - job: init
+      steps:
+       - task: Run terraform init 
+         inputs: terraform init
