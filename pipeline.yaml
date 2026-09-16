@@ -1,8 +1,12 @@
 trigger:
- - main
-agent-pool: test-agentv
+  #branches: 
+   # exclude:
+    #- main
+pool: 
+  name: test-agentv
 
-workingDirectory: Environment/UAT
+variables:
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/UAT'
 
 stages:
  - stage: validation
