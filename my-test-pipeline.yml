@@ -22,4 +22,22 @@ stages:
          script: |
           terraform init
          workingDirectory: $(workingDirectory)
+      - task: CmdLine@2
+        displayName: terraform validate
+        inputs:
+          script: |
+            terraform validate 
+          workingDirectory: $(workingDirectory)
+
+# plan stage
+ - stage:
+   jobs:
+   - job:
+     steps:
+     - task: CmdLine@2
+       displayName: terraform plan 
+       inputs:
+         script: |
+           terraform plan 
+         workingDirectory: $(workingDirectory)
          
