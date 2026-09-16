@@ -38,6 +38,7 @@ stages:
        displayName: terraform plan 
        inputs:
          script: |
+           terraform init
            terraform plan 
          workingDirectory: $(workingDirectory)
          
