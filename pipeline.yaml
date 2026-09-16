@@ -1,9 +1,7 @@
 trigger:
-  #branches: 
-   # exclude:
-    #- main
-pool: 
-  name: test-agentv
+ - main
+pool: test-agentv
+
 
 variables:
   workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/UAT'
@@ -11,7 +9,10 @@ variables:
 stages:
  - stage: validation
    jobs:
-    - job: init
-      steps:
-       - task: Run terraform init 
-         inputs: terraform init
+   - job: init
+     steps: 
+      - task: CmdLine@2
+        inputs:
+          script: |
+            terraform init
+          workingDirectory: $(workingDirectory)
